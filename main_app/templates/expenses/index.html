@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/expenses/expense-index.css' %}" />
+{% endblock %} {% block content %}
+
+<section class="page-header">
+    <h1>Expense List</h1>
+</section>
+
+<section class="card-container">
+    {% for expense in expenses %}
+    <div class="card">
+        <a href="{% url 'expense-detail' expense.id %}">
+            <div class="card-content">
+                <div class="card-img-container">
+
+                </div>
+                <h2 class="card-title">{{ expense.name }}</h2>
+
+                <p>Category: {{ expense.category }}</p>
+                <p>${{ expense.amount }}</p>
+                <p>Transaction Date: {{ expense.date }}</p>
+
+            </div>
+    </div>
+    {% endfor %}
+</section>
+
+{% endblock %}

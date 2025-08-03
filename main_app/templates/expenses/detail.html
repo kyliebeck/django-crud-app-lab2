@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/expenses/expense-detail.css' %}" />
+{% endblock %}
+{% block content %}
+<section class="expense-container">
+    <div class="expense-img">
+        <img src="" alt="" />
+    </div>
+    <div class="expense-details">
+        <h1>{{ expense.name }}</h1>
+        <h2>Category: {{ expense.category }} </h2>
+        <h2>Date: {{ expense.date }}</h2>
+        <h2>Cost: ${{ expense.amount }} </h2>
+
+        <div class="expense-actions">
+            <a href="{% url 'expense-update' expense.id %}" class="btn warn">Edit</a>
+            <a href="{% url 'expense-delete' expense.id %}" class="btn danger">Delete</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
