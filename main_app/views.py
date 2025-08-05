@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Expense
+from django.views.generic import ListView, DetailView
+from .models import Expense, Deposit
 
 # Define the home view function
 def home(request):
@@ -30,3 +31,13 @@ class ExpenseUpdate(UpdateView):
 class ExpenseDelete(DeleteView):
     model = Expense
     success_url = '/expenses/'
+
+class DepositCreate(CreateView):
+    model = Deposit
+    fields = '__all__'
+
+class DepositList(ListView):
+    model = Deposit
+
+class DepositDetail(DetailView):
+    model = Deposit

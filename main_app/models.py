@@ -25,10 +25,23 @@ class Expense(models.Model):
         default=CATEGORIES[0][0]
     )
 
-
-
     def __str__(self):
         return self.name
     
     def get_absolute_url(self):
         return reverse('expense-detail', kwargs={'expense_id': self.id})
+
+
+class Deposit(models.Model):
+    name = models.CharField(max_length=50)
+    
+    
+    def __str__(self):
+        return self.name
+    
+    def get_absolute_url(self):
+        return reverse('deposit-detail', kwargs={'pk': self.id})
+
+    
+
+  

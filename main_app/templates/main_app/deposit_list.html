@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/deposits/deposit-index.css' %}" />
+{% endblock %}
+{% block content %}
+
+<section class="page-header">
+    <h1>All Deposits</h1>
+    <img src="" alt="" />
+    <img src="" alt="" />
+    <img src="" alt="" />
+    <img src="" alt="" />
+</section>
+
+<section class="card-container">
+    {% for deposit in deposit_list %}
+    <div class="card"></div>
+    <div class="card-bg"></div>
+    <a href="{% url 'deposit-detail' deposit.id %}">
+        <div class="card-content">
+            <h2>${{ deposit.name }}</h2>
+
+        </div>
+    </a>
+    </div>
+    {% endfor %}
+</section>
+
+{% endblock %}
